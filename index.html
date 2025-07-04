@@ -1,19 +1,652 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>My static Space</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="card">
-			<h1>Welcome to your static Space!</h1>
-			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
-			<p>
-				Also don't forget to check the
-				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
-			</p>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadil | Ruby on Rails Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48',
+                        secondary: '#0f172a',
+                        accent: '#0ea5e9'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: #e11d48;
+            border-radius: 2px;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e11d48;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e11d48;
+            border: 4px solid white;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 9px;
+            width: 2px;
+            height: calc(100% - 20px);
+            background: #cbd5e1;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">Shadil<span class="text-secondary">.</span></a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link relative py-2">Home</a>
+                <a href="#experience" class="nav-link relative py-2">Experience</a>
+                <a href="#skills" class="nav-link relative py-2">Skills</a>
+                <a href="#projects" class="nav-link relative py-2">Projects</a>
+                <a href="#contact" class="nav-link relative py-2">Contact</a>
+            </nav>
+            <button class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 bg-gradient-to-br from-secondary to-gray-900 text-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Experienced Ruby on Rails <span class="text-primary">Full-Stack Engineer</span></h1>
+                <p class="text-xl mb-6 text-gray-300">Results-driven developer with 4+ years of experience building scalable web applications and RESTful APIs.</p>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <a href="#contact" class="bg-primary hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">Hire Me</a>
+                    <a href="Shadil_Resume.pdf" class="bg-white hover:bg-gray-200 text-secondary px-6 py-3 rounded-lg font-medium transition duration-300">View Resume</a>
+                </div>
+                <div class="flex items-center space-x-4 text-gray-300">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <span>shadil@example.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        <span>+1 (123) 456-7890</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-64 h-64 md:w-80 md:h-80"></div>
+                    <div class="absolute -bottom-4 -right-4 bg-primary p-4 rounded-lg shadow-lg">
+                        <p class="font-bold">4+ Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">About Me</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg mb-6">
+                    I'm a passionate Ruby on Rails Software Engineer with 4 years of experience in full-stack development. 
+                    I specialize in creating scalable web applications, designing RESTful APIs, and delivering clean, 
+                    maintainable code that drives business results.
+                </p>
+                <p class="text-lg mb-8">
+                    My approach combines technical expertise with a focus on solving real-world problems. I thrive in 
+                    challenging environments where I can leverage my skills to build efficient solutions and mentor 
+                    fellow developers.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full">
+                        <i class="fab fa-github text-xl text-gray-700"></i>
+                    </a>
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 p-3 rounded-full">
+                        <i class="fab fa-linkedin-in text-xl text-white"></i>
+                    </a>
+                    <a href="#" class="bg-red-500 hover:bg-red-600 p-3 rounded-full">
+                        <i class="fab fa-google text-xl text-white"></i>
+                    </a>
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 p-3 rounded-full">
+                        <i class="fab fa-twitter text-xl text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Professional Experience</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Experience Item -->
+                <div class="relative pl-8 pb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-secondary">Software Engineer</h3>
+                            <span class="text-primary font-medium">Foradian Technologies</span>
+                        </div>
+                        <p class="text-gray-500 mb-4">Jan 2020 - Present</p>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Engineered integration of BFS Secure Payment Gateway with complex API interactions, robust error handling, and PCI compliance protocols</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Migrated Zoom API authentication system resulting in 20% efficiency improvement</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Developed Electron.js desktop application for biometric attendance system</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Built RESTful APIs for Fconnect platform enabling seamless third-party integrations</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Enhanced online exam module with Practically plugin increasing user engagement by 15%</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Resolved 100+ support tickets and implemented solutions reducing code defects by 30%</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Mentored 5+ junior developers resulting in 25% increase in team productivity</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Second Experience Item -->
+                <div class="relative pl-8 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex flex-wrap justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-secondary">Junior Developer</h3>
+                            <span class="text-primary font-medium">Tech Solutions Inc</span>
+                        </div>
+                        <p class="text-gray-500 mb-4">Mar 2018 - Dec 2019</p>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Developed and maintained Ruby on Rails applications for e-commerce clients</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Implemented responsive front-end designs using HTML5, CSS3, and JavaScript</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span>Collaborated with senior developers on API integrations and database optimization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Technical Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Languages -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-primary text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-secondary">Languages</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>Ruby</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Python</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>C</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>JavaScript</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Frameworks & Libraries -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cubes text-primary text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-secondary">Frameworks & Libraries</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>Ruby on Rails</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 98%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>React</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Electron.js</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Web Technologies -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-primary text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-secondary">Web Technologies</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>HTML5</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>CSS3</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>RESTful APIs</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Methodologies -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-project-diagram text-primary text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-secondary">Methodologies</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>Agile</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>TDD</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Databases -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-database text-primary text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-secondary">Databases</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>MySQL</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>MariaDB</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>PostgreSQL</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Tools & Platforms -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-tools text-primary text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-secondary">Tools & Platforms</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>Git/GitHub</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>JIRA</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Docker</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>RSpec</span>
+                            <div class="w-24 bg-gray-200 rounded-full skill-bar">
+                                <div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-secondary">Soul ERP</h3>
+                            <span class="text-sm bg-primary text-white px-3 py-1 rounded-full">Ruby on Rails</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A comprehensive multi-tenant ERP solution managing 15+ interconnected data models</p>
+                        
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Role-based authentication system with secure data isolation</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Assessment management module with dynamic question sets</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Automated grading with instant analytics dashboard</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Optimized queries for high scalability and performance</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">2021 - Present</span>
+                            <a href="#" class="text-primary hover:text-rose-700 font-medium">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-secondary">TensorFace Emoji Engine</h3>
+                            <span class="text-sm bg-accent text-white px-3 py-1 rounded-full">Python/JS</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">AI-powered emoji generation system based on facial recognition</p>
+                        
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>OpenCV for real-time face detection and clustering</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>TensorFlow for facial feature encoding</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Python backend for AI processing</span>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>JavaScript frontend for real-time rendering</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">2020 - 2021</span>
+                            <div class="flex space-x-3">
+                                <a href="#" class="text-primary hover:text-rose-700 font-medium">
+                                    Demo <i class="fas fa-external-link-alt ml-1"></i>
+                                </a>
+                                <a href="#" class="text-primary hover:text-rose-700 font-medium">
+                                    GitHub <i class="fab fa-github ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Education</h2>
+            
+            <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl p-8 shadow-sm">
+                <div class="flex items-start">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 mr-6"></div>
+                    <div>
+                        <h3 class="text-xl font-bold text-secondary">Bachelor of Technology in Computer Science</h3>
+                        <p class="text-gray-600">University of Calicut</p>
+                        <p class="text-gray-500">2014 - 2018</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-br from-secondary to-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Get In Touch</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-xl mb-6">I'm currently available for freelance work and full-time opportunities. Feel free to reach out!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Email</p>
+                                <p>shadil@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Phone</p>
+                                <p>+1 (123) 456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">LinkedIn</p>
+                                <p>linkedin.com/in/shadil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="name">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-800">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="email">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-800">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2" for="message">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-rose-700 text-white py-3 rounded-lg font-medium transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 Shadil. All rights reserved.</p>
+            <p class="mt-2">Designed and built with ❤️</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollTop" class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.remove('hidden');
+            } else {
+                scrollTopBtn.classList.add('hidden');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=shadilc7/portfolio" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
