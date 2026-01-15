@@ -21,7 +21,8 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Projects</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -48,8 +49,6 @@
                     <pre><code>
 class SoftwareEngineer
   def initialize
-    @name = "Shadil C"
-    @role = "Full-Stack Developer"
     @experience = "4+ years"
     @skills = [
       "Ruby on Rails", "React.js",
@@ -74,65 +73,61 @@ end
                 <span class="decorator-line"></span>
             </div>
             <h2>About Me</h2>
-            <div class="about-content">
-                <div class="bio">
-                    <p>Full-Stack Software Engineer with 4+ years of experience specializing in Ruby on Rails, React.js, and RESTful API development. Proven expertise in building scalable and secure web applications, payment gateway integrations, microservices, and cloud-based systems.</p>
-                    <p>Currently working at Foradian Technologies, Bangalore, where I've engineered payment gateway integrations, developed microservices architectures, and mentored junior developers. Strong track record of improving system performance, reliability, and team productivity through agile development practices.</p>
-                    <a href="assets/Shadil-Resume.pdf" class="download-resume" download>
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                    <div class="experience-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Bugs Resolved</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">30%</span>
-                            <span class="stat-label">Defect Reduction</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Developers Mentored</span>
-                        </div>
-                    </div>
+            <div class="bio">
+                <p>Full-Stack Software Engineer with 4+ years of experience specializing in Ruby on Rails, React.js, and RESTful API development. Proven expertise in building scalable and secure web applications, payment gateway integrations, microservices, and cloud-based systems.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h2 class="skills-heading">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-react skill-icon"></i>
+                    <h3>React.js</h3>
                 </div>
-                <div class="skills">
-                    <div class="skill-category">
-                        <h4>Backend Development</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Ruby on Rails</span>
-                            <span class="skill-tag">RESTful APIs</span>
-                            <span class="skill-tag">Microservices</span>
-                            <span class="skill-tag">OAuth 2.0</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Frontend Development</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">React.js</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">Electron.js</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Database & Cloud</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">CI/CD</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools & Practices</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git/GitHub</span>
-                            <span class="skill-tag">RSpec Testing</span>
-                            <span class="skill-tag">Agile/TDD</span>
-                            <span class="skill-tag">JIRA</span>
-                        </div>
-                    </div>
+                <div class="skill-card">
+                    <i class="fas fa-gem skill-icon"></i>
+                    <h3>Ruby on Rails</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-node-js skill-icon"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>PostgreSQL</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>MySQL</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-docker skill-icon"></i>
+                    <h3>Docker</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <h3>Git</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>RESTful APIs</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cubes skill-icon"></i>
+                    <h3>Microservices</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python skill-icon"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-brain skill-icon"></i>
+                    <h3>TensorFlow</h3>
                 </div>
             </div>
         </section>
@@ -206,57 +201,47 @@ end
                 <span class="decorator-text">03</span>
                 <span class="decorator-line"></span>
             </div>
-            <h2>Get in Touch</h2>
+            <h2 class="contact-main-heading">Get In Touch</h2>
             <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
+                <div class="contact-left">
+                    <h3 class="contact-subtitle">Let's Talk</h3>
+                    <p class="contact-description">Have a project in mind or want to collaborate? I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
                             <a href="mailto:shadilc7@gmail.com">shadilc7@gmail.com</a>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <a href="tel:+918592875584">+91 8592875584</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Bangalore, India</p>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
                         </div>
                     </div>
                 </div>
                 <form id="contact-form" class="contact-form">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/shadil-c" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/shadilc" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="mailto:shadilc7@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
-                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Shadil C. All rights reserved.</p>
+    <footer>
+        <div class="footer-social">
+            <a href="https://github.com/shadilc7" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/shadil-c" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/shadilc7" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p class="footer-copyright">&copy; 2026 Shadil C. All rights reserved.</p>
+        <p class="footer-tagline">Made with <span class="heart">❤️</span> and Code.</p>
     </footer>
 
     <script src="js/main.js"></script>

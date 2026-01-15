@@ -9,33 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Portfolio items data
-    const portfolioItems = [
-        {
-            title: 'Project 1',
-            image: 'assets/project1.jpg',
-            description: 'Web application development',
-            link: '#'
-        },
-        // Add more portfolio items
-    ];
-
-    // Generate portfolio items
-    const portfolioGrid = document.querySelector('.portfolio-grid');
-    portfolioItems.forEach(item => {
-        const portfolioItem = `
-            <div class="portfolio-item">
-                <img src="${item.image}" alt="${item.title}">
-                <div class="portfolio-item-content">
-                    <h3>${item.title}</h3>
-                    <p>${item.description}</p>
-                    <a href="${item.link}" class="project-link">View Project</a>
-                </div>
-            </div>
-        `;
-        portfolioGrid.innerHTML += portfolioItem;
-    });
-
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', async (e) => {
