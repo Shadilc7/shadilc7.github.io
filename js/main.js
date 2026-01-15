@@ -11,16 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact form handling
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        try {
-            // Add your form submission logic here
-            console.log('Form submitted:', Object.fromEntries(formData));
+    const successModal = document.getElementById('success-modal');
+    
+    contactForm.addEventListener('submit', function(e) {
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // After form submits to Google Forms, show success modal
+        setTimeout(() => {
+            successModal.style.display = 'flex';
             contactForm.reset();
-        } catch (error) {
-            console.error('Error submitting form:', error);
-        }
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            
+            // Auto-close modal after 3 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 5000);
+        }, 1000);
     });
 
     // Navbar scroll effect
@@ -56,4 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.remove('active');
         });
     });
-}); 
+});
+
+// Function to close modal
+function closeModal() {
+    document.getElementById('success-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('success-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};

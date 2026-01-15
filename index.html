@@ -232,12 +232,13 @@ end
                         </div>
                     </div>
                 </div>
-                <form id="contact-form" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                <form id="contact-form" class="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSej515ORlytGYWs8lpH06Vig6JuNzjUZtiUKBvTO0x0eUBf5A/formResponse" target="hidden_iframe" method="POST">
+                    <input type="text" name="entry.1926927865" placeholder="Your Name" required>
+                    <input type="email" name="entry.902871956" placeholder="Your Email" required>
+                    <textarea name="entry.1199875789" placeholder="Your Message" rows="6" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
             </div>
         </section>
     </main>
@@ -258,6 +259,20 @@ end
         <p class="footer-copyright">&copy; 2026 Shadil C. All rights reserved.</p>
         <p class="footer-tagline">Made with <span class="heart">❤️</span> and Code.</p>
     </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out<br>I'll get back to you soon.</p>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
