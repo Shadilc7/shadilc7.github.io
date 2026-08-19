@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="particles-background"></div>
@@ -143,6 +143,28 @@ end
             <div class="portfolio-grid">
                 <div class="portfolio-item">
                     <div class="portfolio-content">
+                        <h3>Typit ⚡</h3>
+                        <p>Full-stack, real-time multiplayer coding typing race platform. Features synchronized race countdowns, ActionCable WebSockets for live 60 FPS race track broadcasts, strict-mode typo validation, synthesized Web Audio SFX, and solo practice AI bots.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Ruby on Rails 8</span>
+                            <span class="tech-tag">React 19</span>
+                            <span class="tech-tag">ActionCable</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">WebSockets</span>
+                        </div>
+                        <div class="portfolio-links">
+                            <a href="https://github.com/Shadilc7/typit" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="http://51.79.157.251:8080/" target="_blank" class="project-link">
+                                <i class="fas fa-globe"></i> Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
                         <h3>Soul ERP</h3>
                         <p>Architected a multi-tenant Educational ERP platform with 15+ interconnected data models. Features role-based authentication for administrators, trainers, and participants. Includes a scalable assessment management module with dynamic question sets, automated grading, and instant analytics.</p>
                         <div class="tech-stack">
@@ -155,7 +177,7 @@ end
                             <a href="https://github.com/shadilc7" target="_blank" class="project-link">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#" target="_blank" class="project-link">
+                            <a href="https://beya.in/" target="_blank" class="project-link">
                                 <i class="fas fa-globe"></i> Website
                             </a>
                         </div>
@@ -245,9 +267,9 @@ end
                     </div>
                 </div>
                 <form id="contact-form" class="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSej515ORlytGYWs8lpH06Vig6JuNzjUZtiUKBvTO0x0eUBf5A/formResponse" target="hidden_iframe" method="POST">
-                    <input type="text" name="entry.1926927865" placeholder="Your Name" required>
-                    <input type="email" name="entry.902871956" placeholder="Your Email" required>
-                    <textarea name="entry.1199875789" placeholder="Your Message" rows="6" required></textarea>
+                    <input type="text" name="entry.1926927865" placeholder="Your Name" aria-label="Your Name" required>
+                    <input type="email" name="entry.902871956" placeholder="Your Email" aria-label="Your Email" required>
+                    <textarea name="entry.1199875789" placeholder="Your Message" aria-label="Your Message" rows="6" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -255,7 +277,6 @@ end
         </section>
     </main>
 
-    <footer>
     <footer>
         <div class="footer-social">
             <a href="https://github.com/shadilc7" target="_blank" aria-label="GitHub">
