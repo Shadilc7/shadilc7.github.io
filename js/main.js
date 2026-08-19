@@ -1,5 +1,49 @@
+/**
+ * Shadil C — Portfolio Main Script (2026 Edition)
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scroll for navigation links
+    // -------------------------------------------------------------------------
+    // 1. Navbar Scroll Effect & Scrollspy
+    // -------------------------------------------------------------------------
+    const navbar = document.getElementById('navbar');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
+
+        // Navbar background blur & shadow
+        if (scrollY > 40) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Scrollspy: active section tracking
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (currentSectionId && link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check on load
+
+    // -------------------------------------------------------------------------
+    // 2. Smooth Scrolling for Anchor Links
+    // -------------------------------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -10,80 +54,155 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
+
+                    // Close mobile menu if open
+                    const navMenu = document.getElementById('nav-links');
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
                 }
             }
         });
     });
 
-    // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-    const successModal = document.getElementById('success-modal');
-    
-    contactForm.addEventListener('submit', function(e) {
-        // Show loading state
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        // After form submits to Google Forms, show success modal
-        setTimeout(() => {
-            successModal.style.display = 'flex';
-            contactForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            
-            // Auto-close modal after 3 seconds
-            setTimeout(() => {
-                closeModal();
-            }, 5000);
-        }, 1000);
-    });
+    // -------------------------------------------------------------------------
+    // 3. Mobile Navigation Menu Toggle
+    // -------------------------------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-links');
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-            navbar.style.background = 'rgba(0, 0, 0, 0.98)';
-        } else {
-            navbar.classList.remove('scrolled');
-            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-        }
-    });
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
+    }
 
-    // Mobile menu toggle
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+    // -------------------------------------------------------------------------
+    // 4. Hero Code Terminal Tabs
+    // -------------------------------------------------------------------------
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target)) {
-            navLinks.classList.remove('active');
-        }
-    });
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetTabId = btn.getAttribute('data-tab');
 
-    // Close mobile menu when clicking on a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            // Update active tab button
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Show corresponding code pane
+            tabPanes.forEach(pane => {
+                pane.classList.remove('active');
+                if (pane.id === targetTabId) {
+                    pane.classList.add('active');
+                }
+            });
         });
     });
+
+    // -------------------------------------------------------------------------
+    // 5. Copy Email to Clipboard & Toast
+    // -------------------------------------------------------------------------
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    let toastTimeout;
+
+    function showToast(message) {
+        if (!toast) return;
+        if (toastMessage) toastMessage.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => {
+            const email = copyEmailBtn.getAttribute('data-email') || 'shadilc7@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                showToast(`Copied ${email} to clipboard!`);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast(`Copied ${email} to clipboard!`);
+            });
+        });
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. Contact Form Submission Handling
+    // -------------------------------------------------------------------------
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successModal = document.getElementById('success-modal');
+
+    if (contactForm && submitBtn && successModal) {
+        contactForm.addEventListener('submit', function () {
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+
+            // Give Google Forms request brief transmission time before displaying success
+            setTimeout(() => {
+                successModal.style.display = 'flex';
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Auto-close modal after 5 seconds
+                setTimeout(() => {
+                    closeModal();
+                }, 5000);
+            }, 900);
+        });
+    }
+
+    // Modal close button
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeModal);
+    }
 });
 
-// Function to close modal
+// -----------------------------------------------------------------------------
+// Global Modal Helpers
+// -----------------------------------------------------------------------------
 function closeModal() {
-    document.getElementById('success-modal').style.display = 'none';
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
     const modal = document.getElementById('success-modal');
-    if (event.target === modal) {
+    if (modal) {
         modal.style.display = 'none';
     }
-};
+}
+
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('success-modal');
+    if (modal && event.target === modal) {
+        modal.style.display = 'none';
+    }
+});

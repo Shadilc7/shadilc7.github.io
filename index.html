@@ -3,310 +3,625 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio showcasing creative works and projects">
+    <meta name="description" content="Shadil C - Full-Stack Software Engineer specializing in Ruby on Rails, React.js, WebSockets, and Distributed Systems.">
     <meta name="google-site-verification" content="PggWpn5aPgm0317kokRWLb1mMhXggWmwsvDUM3odSTI" />
-    <title>Shadil C - Full-Stack Software Engineer</title>
+    
+    <!-- Open Graph & Social Meta -->
+    <meta property="og:title" content="Shadil C | Full-Stack Software Engineer">
+    <meta property="og:description" content="Building scalable web applications, real-time systems, and secure RESTful APIs with Ruby on Rails & React.js.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shadilc7.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shadil C | Full-Stack Software Engineer">
+    <meta name="twitter:description" content="Building scalable web applications, real-time systems, and secure RESTful APIs with Ruby on Rails & React.js.">
+
+    <title>Shadil C — Full-Stack Software Engineer</title>
+
+    <!-- Custom SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2305070e'/><text x='50%' y='65%' font-family='sans-serif' font-size='55' font-weight='800' fill='%2300ff9d' text-anchor='middle'>SC</text></svg>">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Ambient Background Effects -->
     <div class="particles-background"></div>
-    <nav class="navbar">
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Toast Notification for Copy Actions -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">SC</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <a href="#home" class="logo" aria-label="Home">
+                <span class="logo-bracket">&lt;</span><span class="logo-name">Shadil</span><span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#portfolio">Projects</a>
-                <a href="#contact">Contact</a>
+
+            <div class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#portfolio" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="nav-cta-btn">Let's Talk</a>
             </div>
         </div>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="hero">
-            <div class="glow-effect glow-1"></div>
-            <div class="glow-effect glow-2"></div>
-            <div class="hero-content">
+            <div class="hero-container">
                 <div class="hero-text">
-                    <h1 class="animate-text">Shadil C</h1>
-                    <p class="tagline animate-text">Full-Stack Software Engineer | Ruby on Rails | React.js</p>
-                    <div class="cta-buttons">
-                        <a href="#portfolio" class="btn btn-outline">View Projects</a>
-                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    <div class="status-chip animate-fade">
+                        <span class="status-pulse"></span>
+                        <span>Available for Full-Stack Roles</span>
                     </div>
-                </div>
-                <div class="hero-code">
-                    <div class="code-header">
-                        <span class="code-dot red"></span>
-                        <span class="code-dot yellow"></span>
-                        <span class="code-dot green"></span>
-                    </div>
-                    <pre><code>
-class SoftwareEngineer
-  def initialize
-    @experience = "4+ years"
-    @skills = [
-      "Ruby on Rails", "React.js",
-      "RESTful APIs", "PostgreSQL",
-      "Docker", "Microservices"
-    ]
-  end
 
-  def build_solutions
-    "Scalable & Secure Systems"
-  end
-end
-                    </code></pre>
-                </div>
-            </div>
-        </section>
+                    <h1 class="hero-title animate-fade">
+                        Hi, I'm <span class="gradient-text">Shadil C</span>
+                    </h1>
 
-        <section id="about" class="about">
-            <div class="section-decorator">
-                <span class="decorator-line"></span>
-            </div>
-            <h2>About Me</h2>
-            <div class="bio">
-                <p>Full-Stack Software Engineer with 4+ years of experience specializing in Ruby on Rails, React.js, and RESTful API development. Proven expertise in building scalable and secure web applications, payment gateway integrations, microservices, and cloud-based systems.</p>
-            </div>
-        </section>
+                    <p class="hero-subtitle animate-fade">
+                        Full-Stack Software Engineer crafting robust backend architectures with <span class="highlight">Ruby on Rails</span>, dynamic frontends in <span class="highlight">React.js</span>, and low-latency real-time systems.
+                    </p>
 
-        <section id="skills" class="skills-section">
-            <div class="section-decorator">
-                <span class="decorator-line"></span>
-            </div>
-            <h2 class="skills-heading">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-gem skill-icon"></i>
-                    <h3>Ruby</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-layer-group skill-icon"></i>
-                    <h3>Ruby on Rails</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-react skill-icon"></i>
-                    <h3>React.js</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-js skill-icon"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server skill-icon"></i>
-                    <h3>PostgreSQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database skill-icon"></i>
-                    <h3>MySQL</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-docker skill-icon"></i>
-                    <h3>Docker</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-git-alt skill-icon"></i>
-                    <h3>Git</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-code skill-icon"></i>
-                    <h3>RESTful APIs</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cubes skill-icon"></i>
-                    <h3>Microservices</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-html5 skill-icon"></i>
-                    <h3>HTML</h3>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt skill-icon"></i>
-                    <h3>CSS</h3>
-                </div>
-            </div>
-        </section>
+                    <div class="hero-actions animate-fade">
+                        <a href="#portfolio" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i> View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-paper-plane"></i> Get In Touch
+                        </a>
+                        <button class="btn btn-glass" id="copy-email-btn" data-email="shadilc7@gmail.com" title="Copy email address">
+                            <i class="fas fa-copy"></i> Copy Email
+                        </button>
+                    </div>
 
-        <section id="portfolio" class="portfolio">
-            <div class="section-decorator">
-                <span class="decorator-line"></span>
-            </div>
-            <h2>My Work</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <h3>Typit ⚡</h3>
-                        <p>Full-stack, real-time multiplayer coding typing race platform. Features synchronized race countdowns, ActionCable WebSockets for live 60 FPS race track broadcasts, strict-mode typo validation, synthesized Web Audio SFX, and solo practice AI bots.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Ruby on Rails 8</span>
-                            <span class="tech-tag">React 19</span>
-                            <span class="tech-tag">ActionCable</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">WebSockets</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/Shadilc7/typit" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="http://51.79.157.251:8080/" target="_blank" class="project-link">
-                                <i class="fas fa-globe"></i> Website
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <h3>Soul ERP</h3>
-                        <p>Architected a multi-tenant Educational ERP platform with 15+ interconnected data models. Features role-based authentication for administrators, trainers, and participants. Includes a scalable assessment management module with dynamic question sets, automated grading, and instant analytics.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Ruby on Rails</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Multi-Tenant</span>
-                            <span class="tech-tag">Role-Based Auth</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/shadilc7" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="https://beya.in/" target="_blank" class="project-link">
-                                <i class="fas fa-globe"></i> Website
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <h3>Fedena ERP</h3>
-                        <p>Engineered integration of BFS Secure Payment Gateway and Transactease Payment Gateway into Fedena ERP system. Ensured PCI compliance and secure financial transactions. Migrated Zoom API authentication from JWT to OAuth 2.0</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Ruby</span>
-                            <span class="tech-tag">Ruby on Rails</span>
-                            <span class="tech-tag">Payment Gateway</span>
-                            <span class="tech-tag">OAuth 2.0</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="https://fedena.com/" target="_blank" class="project-link">
-                                <i class="fas fa-globe"></i> Website
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <h3>Fconnect API</h3>
-                        <p>Developed RESTful APIs powering all Fedena mobile modules including Gradebook, Attendance, and Notifications. Built microservices-based architecture improving scalability and supporting distributed systems.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Ruby on Rails</span>
-                            <span class="tech-tag">RESTful API</span>
-                            <span class="tech-tag">Microservices</span>
-                            <span class="tech-tag">Mobile Backend</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fas fa-globe"></i> Website
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-content">
-                        <h3>TensorFace Emoji Engine</h3>
-                        <p>Built an emoji generation engine using OpenCV for face detection and TensorFlow for deep learning embeddings. Implemented backend in Python with frontend rendering in JavaScript.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="portfolio-links">
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="#" target="_blank" class="project-link">
-                                <i class="fas fa-globe"></i> Website
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="section-decorator">
-                <span class="decorator-line"></span>
-            </div>
-            <h2 class="contact-main-heading">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-left">
-                    <h3 class="contact-subtitle">Let's Talk</h3>
-                    <p class="contact-description">Have a project in mind or want to collaborate? I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
+                    <div class="hero-social-links animate-fade">
+                        <a href="https://github.com/shadilc7" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/shadil-c" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/shadilc7" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile" class="social-icon">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="mailto:shadilc7@gmail.com" aria-label="Send Email" class="social-icon">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:shadilc7@gmail.com">shadilc7@gmail.com</a>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Code Terminal -->
+                <div class="hero-terminal animate-fade">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Bangalore, India</span>
+                        <div class="terminal-tabs">
+                            <button class="tab-btn active" data-tab="tab-ruby">
+                                <i class="fas fa-gem tab-icon"></i> engineer.rb
+                            </button>
+                            <button class="tab-btn" data-tab="tab-stack">
+                                <i class="fab fa-react tab-icon"></i> stack.json
+                            </button>
+                            <button class="tab-btn" data-tab="tab-arch">
+                                <i class="fas fa-layer-group tab-icon"></i> architecture.yml
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="terminal-body">
+                        <!-- Tab 1: Ruby Code -->
+                        <pre class="tab-pane active" id="tab-ruby"><code><span class="code-keyword">class</span> <span class="code-class">SoftwareEngineer</span>
+  <span class="code-keyword">attr_reader</span> <span class="code-symbol">:name</span>, <span class="code-symbol">:role</span>, <span class="code-symbol">:flagship_project</span>
+
+  <span class="code-keyword">def</span> <span class="code-method">initialize</span>
+    <span class="code-var">@name</span>             = <span class="code-string">"Shadil C"</span>
+    <span class="code-var">@role</span>             = <span class="code-string">"Full-Stack Software Engineer"</span>
+    <span class="code-var">@experience</span>       = <span class="code-string">"4+ Years"</span>
+    <span class="code-var">@flagship_project</span> = <span class="code-string">"Soul ERP (Rails 8 Multi-Tenant)"</span>
+  <span class="code-keyword">end</span>
+
+  <span class="code-keyword">def</span> <span class="code-method">build_solutions</span>
+    {
+      <span class="code-symbol">flagship_erp:</span> <span class="code-string">"Soul ERP — Multi-Institute Portal (Rails 8)"</span>,
+      <span class="code-symbol">real_time:</span>    <span class="code-string">"Typit ⚡ ActionCable 60 FPS Engine"</span>,
+      <span class="code-symbol">integrations:</span> <span class="code-string">"Payment Gateways & Microservices"</span>
+    }
+  <span class="code-keyword">end</span>
+<span class="code-keyword">end</span></code></pre>
+
+                        <!-- Tab 2: Stack JSON -->
+                        <pre class="tab-pane" id="tab-stack"><code>{
+  <span class="code-symbol">"flagship"</span>: <span class="code-string">"Soul ERP (Ruby 3.4, Rails 8, Hotwire, Devise)"</span>,
+  <span class="code-symbol">"backend"</span>:  [<span class="code-string">"Ruby on Rails 8"</span>, <span class="code-string">"PostgreSQL"</span>, <span class="code-string">"Hotwire Turbo"</span>],
+  <span class="code-symbol">"realtime"</span>: [<span class="code-string">"ActionCable"</span>, <span class="code-string">"Solid Queue"</span>, <span class="code-string">"Solid Cable"</span>],
+  <span class="code-symbol">"frontend"</span>: [<span class="code-string">"React 19"</span>, <span class="code-string">"TypeScript"</span>, <span class="code-string">"Bootstrap 5"</span>, <span class="code-string">"Chart.js"</span>],
+  <span class="code-symbol">"devops"</span>:   [<span class="code-string">"Docker"</span>, <span class="code-string">"Kamal"</span>, <span class="code-string">"Git"</span>, <span class="code-string">"Linux"</span>, <span class="code-string">"CI/CD"</span>]
+}</code></pre>
+
+                        <!-- Tab 3: Architecture YAML -->
+                        <pre class="tab-pane" id="tab-arch"><code><span class="code-keyword">soul_erp_architecture</span>:
+  <span class="code-symbol">core_platform</span>: <span class="code-string">"Multi-Tenant Training & Assessment ERP"</span>
+  <span class="code-symbol">framework</span>: <span class="code-string">"Ruby on Rails 8.0 & PostgreSQL"</span>
+  <span class="code-symbol">role_portals</span>:
+    - <span class="code-string">master_admin</span>
+    - <span class="code-string">institute_admin</span>
+    - <span class="code-string">trainer</span>
+    - <span class="code-string">participant</span>
+  <span class="code-symbol">engines</span>:
+    - <span class="code-string">Multilingual PDF Certificate Engine (Prawn + Embedded Fonts)</span>
+    - <span class="code-string">Dynamic Question Bank & Transaction-Safe Grading</span>
+    - <span class="code-string">Hotwire Turbo Streams & Solid Queue Asynchronous Jobs</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="4">4+</div>
+                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-desc">Full-stack web engineering</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="15">15+</div>
+                    <div class="stat-label">Data Models</div>
+                    <div class="stat-desc">Architected in Soul ERP & systems</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="4">4</div>
+                    <div class="stat-label">Role-Based Portals</div>
+                    <div class="stat-desc">Master, Institute, Trainer, Participant</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Production Ready</div>
+                    <div class="stat-desc">Scalable, secure & transaction-safe</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-header">
+                <div class="section-tag">&lt;about&gt;</div>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-narrative">
+                    <p class="about-lead">
+                        I am a <strong>Full-Stack Software Engineer</strong> with over <strong>4+ years of experience</strong> architecting scalable enterprise platforms, payment integrations, and microservices.
+                    </p>
+                    <p>
+                        My core focus is backend engineering with <strong>Ruby on Rails 8</strong> and <strong>PostgreSQL</strong>, coupled with dynamic frontends in <strong>Hotwire (Turbo + Stimulus)</strong>, <strong>React.js</strong>, and <strong>TypeScript</strong>.
+                    </p>
+                    <p>
+                        As the architect of <strong>Soul ERP</strong>, I built an enterprise-grade multi-tenant platform with institute isolation, 4 distinct role portals, dynamic assessment grading, and a sandboxed multilingual PDF certificate generation engine.
+                    </p>
+                    
+                    <div class="about-quick-chips">
+                        <span class="chip"><i class="fas fa-check"></i> Multi-Tenant ERP Architecture</span>
+                        <span class="chip"><i class="fas fa-check"></i> Hotwire & Real-Time WebSockets</span>
+                        <span class="chip"><i class="fas fa-check"></i> PCI-Compliant Payment Gateways</span>
+                        <span class="chip"><i class="fas fa-check"></i> REST APIs & Microservices</span>
+                    </div>
+                </div>
+
+                <div class="about-cards-col">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="pillar-info">
+                            <h3>Backend Architecture</h3>
+                            <p>Deep specialization in Ruby on Rails 8, multi-tenant databases, transaction-safe submissions, and Solid Queue/Cable background jobs.</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="pillar-info">
+                            <h3>Modern Frontend & Hotwire</h3>
+                            <p>High-performance UI interfaces using Hotwire (Turbo + Stimulus), React 19, TypeScript, Chart.js, and responsive design systems.</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <div class="pillar-info">
+                            <h3>Security & Integrations</h3>
+                            <p>PCI compliance, secure payment gateways (BFS & Transactease), OAuth 2.0 authorization, and multi-portal Devise RBAC authentication.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-header">
+                <div class="section-tag">&lt;skills&gt;</div>
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="skills-matrix">
+                <!-- Category 1: Backend & Frameworks -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon ruby-icon"><i class="fas fa-gem"></i></div>
+                        <h3>Backend & Frameworks</h3>
+                    </div>
+                    <div class="skill-pill-list">
+                        <div class="skill-pill"><i class="fas fa-gem"></i> <span>Ruby 3.4</span></div>
+                        <div class="skill-pill"><i class="fas fa-layer-group"></i> <span>Ruby on Rails 8</span></div>
+                        <div class="skill-pill"><i class="fas fa-bolt"></i> <span>Hotwire (Turbo + Stimulus)</span></div>
+                        <div class="skill-pill"><i class="fas fa-network-wired"></i> <span>RESTful APIs</span></div>
+                        <div class="skill-pill"><i class="fas fa-file-pdf"></i> <span>Prawn & CombinePDF</span></div>
+                        <div class="skill-pill"><i class="fas fa-key"></i> <span>Devise RBAC & OAuth 2.0</span></div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Frontend & UI -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon react-icon"><i class="fab fa-react"></i></div>
+                        <h3>Frontend & UI</h3>
+                    </div>
+                    <div class="skill-pill-list">
+                        <div class="skill-pill"><i class="fab fa-react"></i> <span>React.js / React 19</span></div>
+                        <div class="skill-pill"><i class="fab fa-js"></i> <span>JavaScript (ES6+)</span></div>
+                        <div class="skill-pill"><i class="fas fa-code"></i> <span>TypeScript</span></div>
+                        <div class="skill-pill"><i class="fab fa-bootstrap"></i> <span>Bootstrap 5</span></div>
+                        <div class="skill-pill"><i class="fas fa-chart-pie"></i> <span>Chart.js</span></div>
+                        <div class="skill-pill"><i class="fas fa-volume-high"></i> <span>Web Audio API</span></div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Databases & Storage -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon db-icon"><i class="fas fa-database"></i></div>
+                        <h3>Databases & Storage</h3>
+                    </div>
+                    <div class="skill-pill-list">
+                        <div class="skill-pill"><i class="fas fa-server"></i> <span>PostgreSQL</span></div>
+                        <div class="skill-pill"><i class="fas fa-database"></i> <span>MySQL</span></div>
+                        <div class="skill-pill"><i class="fas fa-memory"></i> <span>Redis / Solid Cache</span></div>
+                        <div class="skill-pill"><i class="fas fa-sitemap"></i> <span>Multi-Tenant Schemas</span></div>
+                        <div class="skill-pill"><i class="fas fa-chart-line"></i> <span>Query Optimization</span></div>
+                        <div class="skill-pill"><i class="fas fa-lock"></i> <span>Data Integrity & Audits</span></div>
+                    </div>
+                </div>
+
+                <!-- Category 4: DevOps & Tooling -->
+                <div class="skill-category-card">
+                    <div class="category-header">
+                        <div class="category-icon devops-icon"><i class="fab fa-docker"></i></div>
+                        <h3>DevOps & Tooling</h3>
+                    </div>
+                    <div class="skill-pill-list">
+                        <div class="skill-pill"><i class="fab fa-docker"></i> <span>Docker & Kamal</span></div>
+                        <div class="skill-pill"><i class="fab fa-git-alt"></i> <span>Git & GitHub</span></div>
+                        <div class="skill-pill"><i class="fas fa-terminal"></i> <span>Linux / Bash</span></div>
+                        <div class="skill-pill"><i class="fas fa-vial"></i> <span>RSpec & Rails Test</span></div>
+                        <div class="skill-pill"><i class="fas fa-shield-virus"></i> <span>Brakeman & RuboCop</span></div>
+                        <div class="skill-pill"><i class="fas fa-brain"></i> <span>TensorFlow / OpenCV</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio / Projects Section -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="section-header">
+                <div class="section-tag">&lt;projects&gt;</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1: Soul ERP (Main Flagship Project) -->
+                <div class="project-card featured">
+                    <div class="project-badge-ribbon">
+                        <i class="fas fa-crown"></i> Main Flagship Project — Enterprise ERP
+                    </div>
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">Soul ERP</h3>
+                            <span class="project-type">Multi-Tenant Training, Assessment & Multilingual Certificate Platform</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Enterprise-scale multi-tenant training and assessment ERP built with <strong>Ruby on Rails 8</strong> and <strong>PostgreSQL</strong>. Features institute-specific data isolation and dedicated role-based portals for <strong>Master Admin, Institute Admin, Trainer, and Participant</strong>. Incorporates a dynamic question bank with transaction-safe assessment grading, daily attendance tracking with CSV exports, Chart.js analytics reporting, and a high-performance multilingual PDF certificate generation engine powered by Prawn & CombinePDF with embedded Base64 fonts (Malayalam, Arabic, Devanagari).
+                    </p>
+                    <div class="tech-stack-pills">
+                        <span class="tech-tag">Ruby 3.4</span>
+                        <span class="tech-tag">Rails 8.0</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Hotwire (Turbo + Stimulus)</span>
+                        <span class="tech-tag">Devise RBAC</span>
+                        <span class="tech-tag">Prawn / CombinePDF</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">Solid Queue & Cable</span>
+                        <span class="tech-tag">Kamal / Docker</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shadilc7" target="_blank" rel="noopener noreferrer" class="project-btn code-btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="https://beya.in/" target="_blank" rel="noopener noreferrer" class="project-btn live-btn">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Live Platform
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Typit -->
+                <div class="project-card">
+                    <div class="project-badge-ribbon normal">
+                        <i class="fas fa-bolt"></i> Real-Time WebSockets App
+                    </div>
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">Typit ⚡</h3>
+                            <span class="project-type">Multiplayer Coding Typing Race Platform</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Full-stack, real-time typing speed and race platform inspired by TypeRacer and Speedcoder. Features server-synchronized 5s countdowns, ActionCable WebSockets for live 60 FPS race track broadcasts, strict-mode typo validation, synthesized Web Audio mechanical key sounds, and solo AI pacing ghost bots.
+                    </p>
+                    <div class="tech-stack-pills">
+                        <span class="tech-tag">Ruby on Rails 8</span>
+                        <span class="tech-tag">React 19</span>
+                        <span class="tech-tag">ActionCable</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">WebSockets</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Shadilc7/typit" target="_blank" rel="noopener noreferrer" class="project-btn code-btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="http://51.79.157.251:8080/" target="_blank" rel="noopener noreferrer" class="project-btn live-btn">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Fedena ERP -->
+                <div class="project-card">
+                    <div class="project-badge-ribbon normal">
+                        <i class="fas fa-credit-card"></i> Fintech & Integrations
+                    </div>
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">Fedena ERP</h3>
+                            <span class="project-type">Enterprise Payment Gateway & OAuth 2.0 Integration</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Engineered integration of BFS Secure Payment Gateway and Transactease Payment Gateway into the Fedena ERP system. Ensured strict PCI compliance and secure financial transactional auditing. Migrated Zoom API authentication architecture from JWT to OAuth 2.0.
+                    </p>
+                    <div class="tech-stack-pills">
+                        <span class="tech-tag">Ruby on Rails</span>
+                        <span class="tech-tag">Payment Gateways</span>
+                        <span class="tech-tag">PCI Compliance</span>
+                        <span class="tech-tag">OAuth 2.0</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://fedena.com/" target="_blank" rel="noopener noreferrer" class="project-btn live-btn">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Company Website
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Fconnect API -->
+                <div class="project-card">
+                    <div class="project-badge-ribbon normal">
+                        <i class="fas fa-mobile-screen"></i> Microservices & Mobile
+                    </div>
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">Fconnect API</h3>
+                            <span class="project-type">High-Throughput Mobile API Ecosystem</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed RESTful API endpoints powering all Fedena mobile application modules including Gradebook, Attendance, and push Notifications. Architected microservices improving system scalability and supporting distributed workloads.
+                    </p>
+                    <div class="tech-stack-pills">
+                        <span class="tech-tag">Ruby on Rails</span>
+                        <span class="tech-tag">RESTful API</span>
+                        <span class="tech-tag">Microservices</span>
+                        <span class="tech-tag">Mobile Backend</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://fedena.com/" target="_blank" rel="noopener noreferrer" class="project-btn live-btn">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Platform Info
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5: TensorFace -->
+                <div class="project-card">
+                    <div class="project-badge-ribbon normal">
+                        <i class="fas fa-brain"></i> AI & Computer Vision
+                    </div>
+                    <div class="project-header">
+                        <div class="project-title-wrap">
+                            <h3 class="project-title">TensorFace Emoji Engine</h3>
+                            <span class="project-type">Deep Learning Face & Expression Detection</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Built an emoji generation engine using OpenCV for real-time facial feature extraction and TensorFlow for deep learning embeddings. Implemented backend processing in Python with interactive frontend rendering in JavaScript.
+                    </p>
+                    <div class="tech-stack-pills">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shadilc7" target="_blank" rel="noopener noreferrer" class="project-btn code-btn">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <div class="section-tag">&lt;contact&gt;</div>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-left-card">
+                    <h3 class="contact-heading">Let's build something exceptional together</h3>
+                    <p class="contact-subtext">
+                        Have a project, job opportunity, or want to collaborate on distributed systems and full-stack applications? I'm always open to discussing new engineering challenges.
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-detail-row">
+                            <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="detail-info">
+                                <span class="detail-label">Email</span>
+                                <a href="mailto:shadilc7@gmail.com" class="detail-val">shadilc7@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-row">
+                            <div class="detail-icon"><i class="fas fa-location-dot"></i></div>
+                            <div class="detail-info">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-val">Bangalore, India</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-detail-row">
+                            <div class="detail-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="detail-info">
+                                <span class="detail-label">LinkedIn</span>
+                                <a href="https://linkedin.com/in/shadil-c" target="_blank" rel="noopener noreferrer" class="detail-val">linkedin.com/in/shadil-c</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social-bar">
+                        <a href="https://github.com/shadilc7" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="contact-social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/shadil-c" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/shadilc7" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="contact-social-link">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Forms Direct Integration -->
                 <form id="contact-form" class="contact-form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSej515ORlytGYWs8lpH06Vig6JuNzjUZtiUKBvTO0x0eUBf5A/formResponse" target="hidden_iframe" method="POST">
-                    <input type="text" name="entry.1926927865" placeholder="Your Name" aria-label="Your Name" required>
-                    <input type="email" name="entry.902871956" placeholder="Your Email" aria-label="Your Email" required>
-                    <textarea name="entry.1199875789" placeholder="Your Message" aria-label="Your Message" rows="6" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div class="form-title">Send a Message</div>
+                    
+                    <div class="form-group">
+                        <label for="form-name">Your Name</label>
+                        <input type="text" id="form-name" name="entry.1926927865" placeholder="e.g. Alex Smith" aria-label="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-email">Your Email</label>
+                        <input type="email" id="form-email" name="entry.902871956" placeholder="alex@example.com" aria-label="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-message">Your Message</label>
+                        <textarea id="form-message" name="entry.1199875789" placeholder="Tell me about your project or opportunity..." rows="5" aria-label="Your Message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit-btn" id="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
                 </form>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-social">
-            <a href="https://github.com/shadilc7" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/shadil-c" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com/shadilc7" target="_blank" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="logo">
+                    <span class="logo-bracket">&lt;</span><span class="logo-name">Shadil</span><span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span>
+                </a>
+                <p class="footer-tagline">Engineered with care. Powered by code.</p>
+            </div>
+
+            <div class="footer-social-links">
+                <a href="https://github.com/shadilc7" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shadil-c" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/shadilc7" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="mailto:shadilc7@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
-        <p class="footer-copyright">&copy; 2026 Shadil C. All rights reserved.</p>
-        <p class="footer-tagline">Engineered with care. Powered by code.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Shadil C. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Success Modal -->
-    <div id="success-modal" class="modal">
+    <div id="success-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close modal">
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h3>Message Sent!</h3>
-            <p>Thank you for reaching out<br>I'll get back to you soon.</p>
+            <h3 id="modal-title">Message Sent!</h3>
+            <p>Thank you for reaching out.<br>I'll get back to you promptly.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Close</button>
         </div>
     </div>
 
+    <!-- Main JavaScript -->
     <script src="js/main.js"></script>
 </body>
-</html> 
+</html>
