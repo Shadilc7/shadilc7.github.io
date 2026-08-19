@@ -4,14 +4,33 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------------------
-    // 1. Navbar Scroll Effect & Scrollspy
+    // 1. Navbar Scroll Effect, Scrollspy, Progress Bar & Back-to-Top
     // -------------------------------------------------------------------------
     const navbar = document.getElementById('navbar');
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    const scrollProgressBar = document.getElementById('scroll-progress');
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
+        const totalScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+        // Reading progress bar
+        if (totalScrollHeight > 0 && scrollProgressBar) {
+            const progress = Math.min(100, Math.max(0, (scrollY / totalScrollHeight) * 100));
+            scrollProgressBar.style.width = `${progress}%`;
+            scrollProgressBar.setAttribute('aria-valuenow', Math.round(progress));
+        }
+
+        // Scroll to top button visibility
+        if (scrollTopBtn) {
+            if (scrollY > 350) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
 
         // Navbar background blur & shadow
         if (scrollY > 40) {
@@ -40,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check on load
+
+    // Scroll to Top smooth action
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     // -------------------------------------------------------------------------
     // 2. Smooth Scrolling for Anchor Links
@@ -156,7 +185,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
-    // 6. Contact Form Submission Handling
+    // 6. Project Category Filter Pills
+    // -------------------------------------------------------------------------
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (filterPills.length > 0 && projectCards.length > 0) {
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const targetFilter = pill.getAttribute('data-filter');
+
+                // Update active pill state & ARIA attributes
+                filterPills.forEach(p => {
+                    p.classList.remove('active');
+                    p.setAttribute('aria-selected', 'false');
+                });
+                pill.classList.add('active');
+                pill.setAttribute('aria-selected', 'true');
+
+                // Filter cards with smooth fade transition
+                projectCards.forEach(card => {
+                    const cardCategories = (card.getAttribute('data-category') || '').split(' ');
+                    if (targetFilter === 'all' || cardCategories.includes(targetFilter)) {
+                        card.classList.remove('is-hidden');
+                        card.style.animation = 'none';
+                        card.offsetHeight; // trigger reflow
+                        card.style.animation = 'fadeIn 0.4s ease forwards';
+                    } else {
+                        card.classList.add('is-hidden');
+                    }
+                });
+            });
+        });
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. Contact Form Submission Handling
     // -------------------------------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');

@@ -156,11 +156,67 @@ img, svg {
 }
 
 /* --------------------------------------------------------------------------
+   Top Scroll Reading Progress Bar
+   -------------------------------------------------------------------------- */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 50%, var(--purple) 100%);
+    box-shadow: 0 0 12px rgba(0, 255, 157, 0.7);
+    z-index: 999999;
+    transition: width 0.08s ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll to Top Floating Button
+   -------------------------------------------------------------------------- */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(14, 20, 32, 0.85);
+    border: 1px solid var(--border-card);
+    color: var(--primary);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.85);
+    transition: all 0.3s var(--ease-bounce);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-top-btn:hover {
+    background: var(--primary);
+    color: #000000;
+    border-color: var(--primary);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 10px 28px rgba(0, 255, 157, 0.45);
+}
+
+/* --------------------------------------------------------------------------
    4. Toast Notification
    -------------------------------------------------------------------------- */
 .toast {
     position: fixed;
-    bottom: 2rem;
+    bottom: 5.5rem;
     right: 2rem;
     background: rgba(9, 13, 22, 0.95);
     border: 1px solid var(--primary);
@@ -924,7 +980,7 @@ img, svg {
 }
 
 /* --------------------------------------------------------------------------
-   12. Portfolio / Projects Section
+   12. Portfolio / Projects Section & Filter Pills
    -------------------------------------------------------------------------- */
 .portfolio-section {
     padding: var(--section-spacing);
@@ -934,10 +990,83 @@ img, svg {
     z-index: 1;
 }
 
+.project-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.8rem;
+}
+
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 1.25rem;
+    background: rgba(14, 20, 32, 0.65);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.25s var(--ease-bounce);
+    user-select: none;
+}
+
+.filter-pill i {
+    font-size: 0.85rem;
+    color: var(--primary);
+    opacity: 0.8;
+    transition: all 0.25s ease;
+}
+
+.filter-pill:hover {
+    color: var(--text-main);
+    border-color: rgba(0, 255, 157, 0.45);
+    background: rgba(20, 30, 48, 0.85);
+    transform: translateY(-2px);
+}
+
+.filter-pill.active {
+    background: linear-gradient(135deg, rgba(0, 255, 157, 0.15), rgba(0, 240, 255, 0.12));
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.22);
+    transform: translateY(-2px);
+}
+
+.filter-pill.active i {
+    opacity: 1;
+}
+
+.filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.12rem 0.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.filter-pill.active .filter-count {
+    background: var(--primary);
+    color: #000000;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    transition: all 0.3s ease;
 }
 
 .project-card {
@@ -949,8 +1078,15 @@ img, svg {
     flex-direction: column;
     position: relative;
     backdrop-filter: blur(14px);
-    transition: all 0.35s var(--ease-standard);
+    transition: transform 0.35s var(--ease-standard), 
+                box-shadow 0.35s ease, 
+                border-color 0.3s ease, 
+                opacity 0.3s ease;
     overflow: hidden;
+}
+
+.project-card.is-hidden {
+    display: none !important;
 }
 
 .project-card.featured {
